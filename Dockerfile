@@ -1,4 +1,4 @@
-FROM docker.io/alpine-base:0.3.3-2
+FROM rawmind/alpine-base:0.3.3-2
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Compile and install monit and confd
