@@ -3,6 +3,8 @@ rancher-conf
 
 rancher-conf image with confd and monit installed.
 
+Expose a Volume /opt/tools which contains monit and confd.
+
 To build
 
 ```

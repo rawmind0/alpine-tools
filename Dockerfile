@@ -22,7 +22,7 @@ RUN apk add go git gcc musl-dev make openssl-dev \
   && ./configure  --prefix=/opt/tools/monit --without-pam \
   && make && make install \
   && cd /opt/src \
-  && mkdir -p ${CONFD_HOME}/templates ${CONFD_HOME}/conf.d ${CONFD_HOME}/bin ${CONFD_HOME}/log \
+  && mkdir -p ${CONFD_HOME}/etc/templates ${CONFD_HOME}/etc/conf.d ${CONFD_HOME}/bin ${CONFD_HOME}/log \
   && git clone -b "$CONFD_VERSION" https://github.com/kelseyhightower/confd.git \
   && cd $GOPATH/confd/src/github.com/kelseyhightower/confd \
   && GOPATH=$GOPATH/confd/vendor:$GOPATH/confd CGO_ENABLED=0 go build -v -installsuffix cgo -ldflags '-extld ld -extldflags -static' -a -x . \
