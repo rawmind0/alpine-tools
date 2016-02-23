@@ -14,7 +14,7 @@ ENV PATH $PATH:${CONFD_HOME}/bin:${MONIT_HOME}/bin
 
 VOLUME ["/opt/tools"]
 
-RUN apk add go git gcc musl-dev make openssl-dev \
+RUN apk add --update go git gcc musl-dev make openssl-dev \
   && mkdir -p /opt/src; cd /opt/src \
   && mkdir -p ${MONIT_HOME}/etc/conf.d ${MONIT_HOME}/log \
   && curl -sS https://mmonit.com/monit/dist/monit-${MONIT_VERSION}.tar.gz | gunzip -c - | tar -xf - \
