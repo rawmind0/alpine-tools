@@ -1,5 +1,0 @@
-set daemon 60
-set logfile /opt/tools/monit/log/monit.log
-
-set httpd port 2812 
-    allow localhost
