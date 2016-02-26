@@ -7,7 +7,7 @@ ENV CONFD_VERSION=v0.11.0 \
     GOMAXPROCS=2 \
     GOROOT=/usr/lib/go \
     GOPATH=/opt/src \
-    GOBIN=/gopath/bin 
+    GOBIN=/gopath/bin \
     BASE_DIR=/opt/tools
 ENV PATH $PATH:${CONFD_HOME}/bin
 
