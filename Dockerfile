@@ -19,7 +19,7 @@ RUN apk add --update go git gcc musl-dev make openssl-dev \
   && GOPATH=$GOPATH/confd/vendor:$GOPATH/confd CGO_ENABLED=0 go build -v -installsuffix cgo -ldflags '-extld ld -extldflags -static' -a -x . \
   && mv ./confd ${CONFD_HOME}/bin/ \
   && chmod +x ${CONFD_HOME}/bin/confd \
-  && cd /opt && tar czvf tools.tgz tools \
+  && cd /opt/tools && tar czvf ../tools.tgz * \
   && apk del go git gcc musl-dev make openssl-dev \
   && rm -rf /var/cache/apk/* /opt/src $BASE_DIR/*
 
