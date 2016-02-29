@@ -23,6 +23,6 @@ RUN apk add --update go git gcc musl-dev make openssl-dev \
   && apk del go git gcc musl-dev make openssl-dev \
   && rm -rf /var/cache/apk/* /opt/src $BASE_DIR/*
 
-VOLUME ["${BASE_DIR}"]
+VOLUME "${BASE_DIR}"
 
-WORKDIR ["${BASE_DIR}"]
+WORKDIR "${BASE_DIR}"
