@@ -25,4 +25,10 @@ RUN apk add --update go git gcc musl-dev make openssl-dev \
 
 VOLUME "${BASE_DIR}"
 
+# Add start script
+ADD root /
+RUN chmod +x /tmp/start.sh /opt/tools/confd/bin/service-confd.sh
+
 WORKDIR "${BASE_DIR}"
+
+ENTRYPOINT ["/tmp/start.sh"]
