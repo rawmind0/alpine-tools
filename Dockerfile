@@ -1,5 +1,5 @@
-FROM cf-registry.innotechapp.com/alpine-basic:0.3.3-6
-MAINTAINER Innovation Technologies <InnoTech@bbva.com>
+FROM rawmind/alpine-base:0.3.3-2
+MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Compile and install monit and confd
 ENV CONFD_VERSION=v0.11.0 \
@@ -8,8 +8,8 @@ ENV CONFD_VERSION=v0.11.0 \
     GOROOT=/usr/lib/go \
     GOPATH=/opt/src \
     GOBIN=/gopath/bin \
-    BASE_DIR=/opt/tools
-ENV PATH $PATH:${CONFD_HOME}/bin
+    BASE_DIR=/opt/tools \
+    PATH=$PATH:/opt/tools/confd/bin
 
 RUN apk add --update go git gcc musl-dev make openssl-dev \
   && mkdir -p /opt/src; cd /opt/src \
