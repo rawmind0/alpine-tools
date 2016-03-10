@@ -1,4 +1,4 @@
-alpine-confd
+alpine-conf
 =============
 
 A base image to run confd. It's based in alpine-base, adding confd as config management
@@ -6,7 +6,7 @@ A base image to run confd. It's based in alpine-base, adding confd as config man
 ##Build
 
 ```
-docker build -t <repo>/alpine-confd:<version> .
+docker build -t <repo>/alpine-conf:<version> .
 ```
 
 ## Config management
@@ -20,7 +20,7 @@ This image compiles and intall [confd][confd] under /opt/tools/confd, to make it
 
 ## Usage
 
-To use this image include `FROM rawmind/alpine-confd` at the top of your `Dockerfile`. Starting from `rawmind/alpine-confd` provides you with the ability to easily get dinamic configuration using confd. confd will also keep running checking for config changes, restarting your service.
+To use this image include `FROM rawmind/alpine-conf` at the top of your `Dockerfile`. Starting from `rawmind/alpine-conf` provides you with the ability to easily get dinamic configuration using confd. confd will also keep running checking for config changes, restarting your service.
 
 This image has to be started once as a sidekick of your service (based in alpine-monit), exporting a /opt/tools volume to it. It adds monit conf.d to start confd with a default parameters, that you can overwrite with environment variables.
 
