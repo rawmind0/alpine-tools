@@ -9,6 +9,24 @@ A base image to expose tools to services. It's based in alpine-base, adding conf
 docker build -t <repo>/alpine-tools:<version> .
 ```
 
+## Tools volume
+
+This images creates a volume /opt/tools and permits share tools with the services, avoiding coupling service with configuration.
+
+That volume has the following structure:
+
+```
+|- /opt/tools
+|-|- confd 	# Confd directory
+|-|-|- etc
+|-|-|-|- templates
+|-|-|-|- conf.d
+|-|-|- bin
+|-|- monit/conf.d 	#Monit start script directory
+|-|- scripts 		# Scripts directory
+```
+
+
 ## Config management
 
 This image compiles and intall [confd][confd] under /opt/tools/confd, to make it super simple to get dinamic configuration for your service. 
