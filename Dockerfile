@@ -30,4 +30,4 @@ ADD root /
 
 WORKDIR "${BASE_DIR}"
 
-ENTRYPOINT ["bash","/tmp/start.sh"]
+ENTRYPOINT ["bash","/start.sh"]

@@ -6,6 +6,6 @@ SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
 
 # Untar tools.tgz into /opt/tools
 tar xzvf /opt/tools.tgz -C ${SERVICE_VOLUME}
-chown -R ${SERVICE_USER}:${SERVICE_GROUP} ${SERVICE_VOLUME}
+chown -R ${SERVICE_UID}:${SERVICE_GID} ${SERVICE_VOLUME}
 
 true
