@@ -26,6 +26,14 @@ That volume has the following structure:
 |-|- scripts 		# Scripts directory
 ```
 
+## Volume owner
+
+The entrypoint set correct owner to /opt/tools volume. You must provide UID and GID for your service, overriding env variables:
+
+- SERVICE_UID=${SERVICE_UID:-"0"} 
+- SERVICE_GID=${SERVICE_GID:-"0"}
+- SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
+
 
 ## Config management
 
