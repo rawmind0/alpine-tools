@@ -2,7 +2,7 @@ FROM rawmind/alpine-base:0.3.4-1
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Compile and install monit and confd
-ENV CONFD_VERSION=v0.11.0 \
+ENV CONFD_VERSION=v0.12.0-alpha3 \
     CONFD_HOME=/opt/tools/confd \
     GOMAXPROCS=2 \
     GOROOT=/usr/lib/go \
