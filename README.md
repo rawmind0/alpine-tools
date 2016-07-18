@@ -28,11 +28,12 @@ That volume has the following structure:
 
 ## Volume owner
 
-The entrypoint set correct owner to /opt/tools volume. You must provide UID and GID for your service, overriding env variables:
+The entrypoint set correct owner to ${SERVICE_VOLUME} volume. You must provide UID and GID for your service, overriding env variables:
 
 - SERVICE_UID=${SERVICE_UID:-"0"} 
 - SERVICE_GID=${SERVICE_GID:-"0"}
 - SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
+- SERVICE_ARCHIVE=${SERVICE_ARCHIVE:-"/opt/tools.tgz"}
 - KEEP_ALIVE=${KEEP_ALIVE:-"0"} 	# Set to "1" to run in kubernetes as multicontainer pod. To keep alive.
 
 
@@ -43,7 +44,7 @@ This image compiles and intall [confd][confd] under /opt/tools/confd, to make it
 
 ## Versions
 
-- `0.3.4-3` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-3/Dockerfile)
+- `0.3.4-4` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-4/Dockerfile)
 - `0.3.4-1` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-1/Dockerfile)
 
 ## Usage
