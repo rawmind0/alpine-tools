@@ -3,6 +3,7 @@
 SERVICE_UID=${SERVICE_UID:-"0"} 
 SERVICE_GID=${SERVICE_GID:-"0"}
 SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
+SERVICE_ARCHIVE=${SERVICE_ARCHIVE:-"/opt/tools.tgz"}
 KEEP_ALIVE=${KEEP_ALIVE:-"0"}
 
 # Untar tools.tgz into /opt/tools

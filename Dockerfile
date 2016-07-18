@@ -1,33 +1,35 @@
 FROM rawmind/alpine-base:0.3.4-1
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
+# Set service params
+ENV SERVICE_VOLUME=/opt/tools \
+    SERVICE_ARCHIVE=/opt/tools.tgz \
+    KEEP_ALIVE=0
+
 # Compile and install monit and confd
 ENV CONFD_VERSION=v0.11.0 \
-    CONFD_HOME=/opt/tools/confd \
+    CONFD_HOME=${SERVICE_VOLUME}/confd \
     GOMAXPROCS=2 \
     GOROOT=/usr/lib/go \
     GOPATH=/opt/src \
     GOBIN=/gopath/bin \
-    BASE_DIR=/opt/tools \
-    PATH=$PATH:/opt/tools/confd/bin
+    PATH=$PATH:${SERVICE_VOLUME}/confd/bin 
 
 RUN apk add --update go git gcc musl-dev make openssl-dev \
   && mkdir -p /opt/src; cd /opt/src \
-  && mkdir -p ${BASE_DIR}/monit/conf.d ${BASE_DIR}/scripts ${CONFD_HOME}/etc/templates ${CONFD_HOME}/etc/conf.d ${CONFD_HOME}/bin ${CONFD_HOME}/log \
+  && mkdir -p ${SERVICE_VOLUME}/monit/conf.d ${SERVICE_VOLUME}/scripts ${CONFD_HOME}/etc/templates ${CONFD_HOME}/etc/conf.d ${CONFD_HOME}/bin ${CONFD_HOME}/log \
   && git clone -b "$CONFD_VERSION" https://github.com/kelseyhightower/confd.git \
   && cd $GOPATH/confd/src/github.com/kelseyhightower/confd \
   && GOPATH=$GOPATH/confd/vendor:$GOPATH/confd CGO_ENABLED=0 go build -v -installsuffix cgo -ldflags '-extld ld -extldflags -static' -a -x . \
   && mv ./confd ${CONFD_HOME}/bin/ \
   && chmod +x ${CONFD_HOME}/bin/confd \
-  && cd ${BASE_DIR} && tar czvf ../tools.tgz * \
+  && cd ${SERVICE_VOLUME} && tar czvf ${SERVICE_ARCHIVE} * \
   && apk del go git gcc musl-dev make openssl-dev \
-  && rm -rf /var/cache/apk/* /opt/src $BASE_DIR/*
-
-VOLUME "${BASE_DIR}"
+  && rm -rf /var/cache/apk/* /opt/src ${SERVICE_VOLUME}/*
 
 # Add start script
 ADD root /
 
-WORKDIR "${BASE_DIR}"
+WORKDIR "${SERVICE_VOLUME}"
 
 ENTRYPOINT ["bash","/start.sh"]
