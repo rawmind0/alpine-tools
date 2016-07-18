@@ -33,6 +33,7 @@ The entrypoint set correct owner to /opt/tools volume. You must provide UID and 
 - SERVICE_UID=${SERVICE_UID:-"0"} 
 - SERVICE_GID=${SERVICE_GID:-"0"}
 - SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
+- KEEP_ALIVE=${KEEP_ALIVE:-"0"} 	# Set to "1" to run in kubernetes as multicontainer pod. To keep alive.
 
 
 ## Config management
