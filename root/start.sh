@@ -11,7 +11,8 @@ chown -R ${SERVICE_UID}:${SERVICE_GID} ${SERVICE_VOLUME}
 
 if [ "x$KEEP_ALIVE" == "x1" ]; then
 	trap "exit 0" SIGINT SIGTERM
-	while ;do
+	while :
+	do
 		echo `date` $ME - "I'm alive"
 		sleep 600
 	done

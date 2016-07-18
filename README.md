@@ -43,7 +43,7 @@ This image compiles and intall [confd][confd] under /opt/tools/confd, to make it
 
 ## Versions
 
-- `0.3.4-2` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-2/Dockerfile)
+- `0.3.4-3` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-3/Dockerfile)
 - `0.3.4-1` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-1/Dockerfile)
 
 ## Usage
