@@ -6,7 +6,8 @@ SERVICE_VOLUME=${SERVICE_VOLUME:-"/opt/tools"}
 KEEP_ALIVE=${KEEP_ALIVE:-"0"}
 
 # Untar tools packages into /opt/tools
-for i in `ls -r1 /opt/*.tgz`; do 
+for i in `ls -tr1 /opt/*tgz`; do 
+	echo `date` $ME - Extracting $i
 	tar xzvf $i -C ${SERVICE_VOLUME}
 done
 chown -R ${SERVICE_UID}:${SERVICE_GID} ${SERVICE_VOLUME}
