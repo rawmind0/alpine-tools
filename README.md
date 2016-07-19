@@ -11,18 +11,18 @@ docker build -t <repo>/alpine-tools:<version> .
 
 ## Tools volume
 
-This images creates a volume /opt/tools and permits share tools with the services, avoiding coupling service with configuration.
+This images creates a volume ${SERVICE_VOLUME} and permits share tools with the services, avoiding coupling service with configuration.
 
 That volume has the following structure:
 
 ```
-|- /opt/tools
-|-|- confd 	# Confd directory
+|- /opt/tools 		# SERVICE_VOLUME base path
+|-|- confd 			# Confd directory
 |-|-|- etc
 |-|-|-|- templates
 |-|-|-|- conf.d
 |-|-|- bin
-|-|- monit/conf.d 	#Monit start script directory
+|-|- monit/conf.d 	# Monit start script directory
 |-|- scripts 		# Scripts directory
 ```
 
@@ -39,7 +39,7 @@ The entrypoint set correct owner to ${SERVICE_VOLUME} volume. You must provide U
 
 ## Config management
 
-This image compiles and intall [confd][confd] under /opt/tools/confd, to make it super simple to get dinamic configuration for your service. 
+This image compiles and intall [confd][confd] under ${SERVICE_VOLUME}/confd, to make it super simple to get dinamic configuration for your service. 
 
 
 ## Versions
@@ -53,11 +53,17 @@ To use this image include `FROM rawmind/alpine-tools` at the top of your `Docker
 
 Starting from `rawmind/alpine-tools` provides you with the ability to easily get dinamic configuration using confd. confd will also keep running checking for config changes, restarting your service.
 
-This image has to be started once as a sidekick of your service (based in alpine-monit), exporting a /opt/tools volume to it. It adds monit conf.d to start confd with a default parameters, that you can overwrite with environment variables.
+This image has to be started once as a sidekick of your service (based in alpine-monit), exporting a ${SERVICE_VOLUME} volume to it. It adds monit conf.d to start confd with a default parameters, that you can overwrite with environment variables.
 
 
 ## Examples
 
-An example of using this image can be found in the [rawmind/alpine-zk][alpine-zk].
+An example of using this image can be found in the [rawmind/rancher-tools][rancher-tools].
+
+An example of using this image can be found in the [rawmind/k8s-tools][k8s-tools].
+
 
 [confd]: http://www.confd.io/
+[rancher-tools]: https://github.com/rawmind0/rancher-tools
+[k8s-tools]: https://github.com/rawmind0/k8s-tools
+
