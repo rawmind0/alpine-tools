@@ -26,6 +26,7 @@ RUN apk add --update go git gcc musl-dev make openssl-dev && \
     mv ./confd ${CONFD_HOME}/bin/ && \
     chmod +x ${CONFD_HOME}/bin/confd && \
     curl -L $JQ_URL/jq-${JQ_VERSION}/jq-linux64 -o ${SERVICE_VOLUME}/scripts/jq && \
+    chmod 755 ${SERVICE_VOLUME}/scripts/jq && \
     cd ${SERVICE_VOLUME} && \
     tar czvf ${SERVICE_ARCHIVE} * && \
     apk del go git gcc musl-dev make openssl-dev && \
