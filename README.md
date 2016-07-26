@@ -44,7 +44,7 @@ This image compiles and intall confd under ${SERVICE_VOLUME}/confd, to make it s
 
 ## Versions
 
-- `0.3.4-6` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-6/Dockerfile)
+- `0.3.4-7` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-7/Dockerfile)
 
 ## Usage
 
