@@ -1,7 +1,7 @@
 alpine-tools
 =============
 
-A base image to expose tools to services. It's based in alpine-base, adding confd as config management
+A base image to expose tools to services. It's based in alpine-base, adding [confd][confd] as config management and [jq][jq] as tool.
 
 ##Build
 
@@ -39,13 +39,12 @@ The entrypoint set correct owner to ${SERVICE_VOLUME} volume. You must provide U
 
 ## Config management
 
-This image compiles and intall [confd][confd] under ${SERVICE_VOLUME}/confd, to make it super simple to get dinamic configuration for your service. 
+This image compiles and intall confd under ${SERVICE_VOLUME}/confd, to make it super simple to get dinamic configuration for your service. 
 
 
 ## Versions
 
-- `0.3.4-5` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-5/Dockerfile)
-- `0.3.4-1` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-1/Dockerfile)
+- `0.3.4-6` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-6/Dockerfile)
 
 ## Usage
 
@@ -64,6 +63,7 @@ An example of using this image can be found in the [rawmind/k8s-tools][k8s-tools
 
 
 [confd]: http://www.confd.io/
+[jq]: https://github.com/stedolan/jq
 [rancher-tools]: https://github.com/rawmind0/rancher-tools
 [k8s-tools]: https://github.com/rawmind0/k8s-tools
 
