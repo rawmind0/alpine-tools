@@ -10,6 +10,7 @@ for i in `ls -tr1 /opt/*tgz`; do
 	echo `date` $ME - Extracting $i
 	tar xzvf $i -C ${SERVICE_VOLUME}
 done
+touch ${SERVICE_VOLUME}/.synced
 chown -R ${SERVICE_UID}:${SERVICE_GID} ${SERVICE_VOLUME}
 
 if [ "x$KEEP_ALIVE" == "x1" ]; then
