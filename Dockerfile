@@ -1,4 +1,4 @@
-FROM rawmind/alpine-base:0.3.4-1
+FROM rawmind/alpine-base:3.5-1
 MAINTAINER Raul Sanchez <rawmind@gmail.com>
 
 # Set service params
