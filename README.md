@@ -6,7 +6,7 @@ A base image to expose tools to services. It's based in alpine-base, adding [con
 ##Build
 
 ```
-docker build -t <repo>/alpine-tools:<version> .
+ci/build.sh
 ```
 
 ## Tools volume
@@ -44,6 +44,7 @@ This image compiles and intall confd under ${SERVICE_VOLUME}/confd, to make it s
 
 ## Versions
 
+- `3.6-0` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/3.6-0/Dockerfile)
 - `3.5-1` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/3.5-1/Dockerfile)
 - `0.3.4-7` [(Dockerfile)](https://github.com/rawmind0/alpine-tools/blob/0.3.4-7/Dockerfile)
 
