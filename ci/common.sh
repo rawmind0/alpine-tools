@@ -43,7 +43,7 @@ DOCKER_PASS=${DOCKER_PASS:-"password"}
 DOCKER_NAME=${DOCKER_NAME:-"alpine-base"}
 DOCKER_ARCHIVE=${DOCKER_ARCHIVE:-$parent_path"/docker_image"}
 GITHUB_TOKEN=${GITHUB_TOKEN:-"TOKEN"}
-GITHUB_REPO=${GIT_REPO:-"https://x-access-token:"${GITHUB_TOKEN}"@github.com/rawmind0/alpine-base.git"}
+GITHUB_REPO=${GIT_REPO:-"https://x-access-token:"${GITHUB_TOKEN}"@github.com/rawmind0/alpine-tools.git"}
 
 if [ -z "${TAG}" ]; then
 	REVISION=$(getRev ${VERSION})
