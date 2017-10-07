@@ -8,7 +8,7 @@ function checkError {
         echo "OK"
 }
 
-./start.sh
+/start.sh
 
 CURRENT_FULL=$(confd -version)
 checkError $?
