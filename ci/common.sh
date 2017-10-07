@@ -43,7 +43,7 @@ DOCKER_PASS=${DOCKER_PASS:-"password"}
 DOCKER_NAME=${DOCKER_NAME:-"alpine-tools"}
 DOCKER_ARCHIVE=${DOCKER_ARCHIVE:-$parent_path"/docker_image"}
 GITHUB_USER=${GITHUB_USER:-"rawmind0"}
-GITHUB_MAIL=${GITHUB_mail:-"rawmind@gmail.com"}
+GITHUB_MAIL=${GITHUB_MAIL:-"rawmind@gmail.com"}
 GITHUB_TOKEN=${GITHUB_TOKEN:-"TOKEN"}
 GITHUB_REPO=${GIT_REPO:-"https://x-access-token:"${GITHUB_TOKEN}"@github.com/rawmind0/alpine-tools.git"}
 
