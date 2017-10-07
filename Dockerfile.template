@@ -21,7 +21,7 @@ ENV SERVICE_VOLUME=/opt/tools \
     KEEP_ALIVE=0
 
 # Compile and install monit and confd
-ENV CONFD_VERSION=v0.11.0 \
+ENV CONFD_VERSION=0.11.0 \
     CONFD_HOME=\${SERVICE_VOLUME}/confd \
     GOMAXPROCS=2 \
     GOROOT=/usr/lib/go \
@@ -34,7 +34,7 @@ ENV CONFD_VERSION=v0.11.0 \
 RUN apk add --update go git gcc musl-dev make libressl-dev && \
     mkdir -p /opt/src; cd /opt/src && \
     mkdir -p \${SERVICE_VOLUME}/monit/conf.d \${SERVICE_VOLUME}/scripts \${CONFD_HOME}/etc/templates \${CONFD_HOME}/etc/conf.d \${CONFD_HOME}/bin ${CONFD_HOME}/log && \
-    git clone -b "\$CONFD_VERSION" https://github.com/kelseyhightower/confd.git && \
+    git clone -b "v\$CONFD_VERSION" https://github.com/kelseyhightower/confd.git && \
     cd \$GOPATH/confd/src/github.com/kelseyhightower/confd && \
     GOPATH=\$GOPATH/confd/vendor:\$GOPATH/confd go build && \
     mv ./confd \${CONFD_HOME}/bin/ && \

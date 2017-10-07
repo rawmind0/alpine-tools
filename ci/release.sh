@@ -19,7 +19,7 @@ if [ "$exist_image" -ne "1" ]; then
 fi
 
 log "Checking git Dockerfile changes ${TAG} ..."
-if [ "$(git status --porcelain | grep Dockerfile; echo $?)" -eq "0" ]; then 
+if [ "$(git status --porcelain | grep -q Dockerfile ; echo $?)" -eq "0" ]; then 
 	log "Commiting git Dockerfile changes ${TAG} ..."
 	git commit -am ""
 	checkError $?
