@@ -15,7 +15,7 @@ checkError $?
 
 CURRENT_VERSION=$(echo ${CURRENT_FULL} | cut -d" " -f2)
 
-if [ "$CURRENT_VERSION" != "$CONFD_VERSION"]; then
+if [ "$CURRENT_VERSION" != "$CONFD_VERSION" ]; then
         echo "ERROR got $CURRENT_VERSION expected $CONFD_VERSION"
         exit 1
 fi
