@@ -9,7 +9,7 @@ fi
 DOCKER_FILE=${DOCKER_FILE:-"Dockerfile"}
 DOCKER_FROM=${DOCKER_FROM:-"rawmind/alpine-base:3.5-1"}
 
-log "Generating ${DOCKER_FILE} with FROM ${DOCKER_FROM} ..."
+echo "Generating ${DOCKER_FILE} with FROM ${DOCKER_FROM} ..."
 
 cat << EOF > ${DOCKER_FILE}
 FROM ${DOCKER_FROM}

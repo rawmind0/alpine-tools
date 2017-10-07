@@ -19,17 +19,8 @@ if [ "$exist_image" -ne "1" ]; then
 fi
 
 log "Running ${DOCKER_IMAGE} ..."
-CHECK=$(docker run -t --rm ${DOCKER_IMAGE} cat /etc/alpine-release )
+docker run -t --rm --entrypoint=/test.sh ${DOCKER_IMAGE}
 checkError $?
-
-log "Testing ${DOCKER_IMAGE} ..."
-CHECK_VER=$(echo ${CHECK} | cut -d. -f1,2 )
-EXPECTED_VER=$(echo ${TAG} | cut -d"-" -f1)
-
-if [ "$CHECK_VER" != "$EXPECTED_VER" ]; then 
-	log "ERROR got $CHECK_VER expected $EXPECTED_VER"
-	exit 1
-fi
 
 log "OK"
 exit 0
