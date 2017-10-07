@@ -21,7 +21,9 @@ fi
 log "Checking git Dockerfile changes ${TAG} ..."
 if [ "$(git status --porcelain | grep -q Dockerfile ; echo $?)" -eq "0" ]; then 
 	log "Commiting git Dockerfile changes ${TAG} ..."
-	git commit -am ""
+	git config --global user.email "${GITHUB_MAIL}"
+    git config --global user.name "${GITHUB_USER}"
+	git commit -am "Dockerfile for ${DOCKER_IMAGE}"
 	checkError $?
 fi
 
